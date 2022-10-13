@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+    <title>Mail Sender Bot</title>
+</head>
+<body>
+    <div class="tag"><h1>Send Your Raw Code or <br> File to Your Email</h1></div>
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input name="email" type="text" class="feedback-input" placeholder="Email" />
+        <input name="subject" type="text" class="feedback-input" placeholder="Subject" />
+        <div class="file-input">
+            <input type="file" name="codefile" id="file" class="file">
+            <label for="file">
+              Select file
+            </label>
+            <p class="file-name"></p>
+          </div>
+        <textarea name="codearea" class="feedback-input" placeholder="Raw Code Past here"></textarea>
+        <input type="submit" value="SUBMIT"/>
+      </form>
+</body>
+<script src="{%static 'script.js'%}"></script>
+</html>
